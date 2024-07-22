@@ -7,8 +7,6 @@ export default class {
 
     addTask = (task) => {
         this.tasks.push(task);
-
-        logInfo(task, 'add');
     }
 
     editTask = (id, title, desc, dueDate, priority) => {
@@ -19,8 +17,9 @@ export default class {
             this.tasks[taskIndex].dueDate = dueDate;
             this.tasks[taskIndex].priority = priority;
 
-            logInfo(this.tasks[taskIndex], 'edit')
+            return this.tasks[taskIndex];
         }
+        return null;
     }
 
     deleteTask = (id) => {
@@ -28,7 +27,7 @@ export default class {
         const taskToDelete = this.tasks[taskIndex];
         this.tasks = this.tasks.filter(task => task.id !== id);
 
-        logInfo(taskToDelete, 'delet');
+        return taskToDelete;
     }
 
     toggleComplete = id => {
@@ -36,7 +35,7 @@ export default class {
         if (taskIndex != -1) {
             this.tasks[taskIndex].completed ? false : true;
 
-            logInfo(this.tasks[taskIndex], 'toggl');
+            return this.tasks[taskIndex];
         }
     }
 }
