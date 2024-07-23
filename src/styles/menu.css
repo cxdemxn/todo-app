@@ -91,6 +91,8 @@
     gap: 1rem;
     font-size: 1rem;
     font-weight: 600;
+    color: var(--font-heavy-color);
+    /* color: #e7e5e5; */
 }
 
 .list-color {
