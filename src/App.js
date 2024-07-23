@@ -1,3 +1,4 @@
+import './styles/style.css'
 import Task from './components/Task'
 
 const newTask = new Task('title', 'some odd description', new Date());
