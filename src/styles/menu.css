@@ -2,7 +2,7 @@
     background-color: var(--bg-color-secondary);
     display: grid;
     gap: 2rem;
-    max-width: 414px;
+    /* max-width: 414px; */
     padding: 1.3rem;
 }
 
