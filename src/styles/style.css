@@ -13,6 +13,8 @@
 
     --font-heavy-color: #212529;
     --font-light-color: #7c7c7c;
+
+    --font-medium: .8rem;
 }
 
 svg {
