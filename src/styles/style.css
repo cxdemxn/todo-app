@@ -1,3 +1,20 @@
-.test {
-    color: red;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+
+    --bg-color-primary: #fafafa;
+    --bg-color-secondary: #f4f4f4;
+    --bg-color-tetiary: #ebebeb;
+
+    --font-heavy-color: #212529;
+    --font-light-color: #7c7c7c;
+}
+
+svg {
+    fill: var(--font-light-color);
 }
