@@ -1,3 +1,30 @@
+@font-face {
+    font-family: 'Lexend Deca bold';
+    src: url('../assets/font/LexendDeca-Bold.woff2') format('woff2'),
+        url('../assets/font/LexendDeca-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend Deca regular';
+    src: url('../assets/font/LexendDeca-Regular.woff2') format('woff2'),
+        url('../assets/font/LexendDeca-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend Deca light';
+    src: url('../assets/font/LexendDeca-Light.woff2') format('woff2'),
+        url('../assets/font/LexendDeca-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -6,7 +33,8 @@
 
 :root {
     font-size: 16px;
-
+    font-family: 'Lexend Deca regular';
+    
     --bg-color-primary: #fafafa;
     --bg-color-secondary: #f4f4f4;
     --bg-color-tetiary: #ebebeb;
@@ -15,8 +43,22 @@
     --font-light-color: #7c7c7c;
 
     --font-medium: .8rem;
+    height: 100%;
 }
 
 svg {
     fill: var(--font-light-color);
+    /* stroke: var(--font-light-color);
+    stroke-width: 20px;    */
+}
+
+button, input {
+    border: none;
+    background: none;
+    font-family: 'Lexend Deca light';
+}
+
+body {
+    height: 100%;
+    display: grid;
 }
