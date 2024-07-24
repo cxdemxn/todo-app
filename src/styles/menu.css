@@ -50,6 +50,7 @@
 .menu-top .two input {
     width: 100%;
     height: 100%;
+    font-size: 16px;
 }
 
 .menu-top .two input::placeholder {
