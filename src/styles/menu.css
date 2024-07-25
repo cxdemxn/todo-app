@@ -4,7 +4,7 @@
     flex-direction: column;
     flex-grow: 1;
     gap: 2rem;
-    padding: 1.3rem;
+    padding: 1.3rem 0;
     height: 100%;
     height: 100vh;
     /* height: calc(100vh - 50px);
@@ -15,11 +15,14 @@
 .menu-top {
     display: grid;
     gap: 1rem;
+    padding: 0 1.3rem;
+
 }
 
 .menu-body {
     overflow: auto;
     /* background-color: red; */
+    padding: 0 1.3rem;
 }
 
 .menu-top .one {
