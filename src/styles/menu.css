@@ -152,7 +152,7 @@ svg.add-icon {
     justify-content: left;
     gap: 1rem;
     /* padding: .5rem 0; */
-    display: none;
+    /* display: none; */
 }
 
 .menu-bottom button {
