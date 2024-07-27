@@ -84,7 +84,6 @@
 
 .section-list {
     display: grid;
-
 }
 
 .section-list button {
@@ -112,6 +111,7 @@
     border-radius: 3px;
 }
 
+
 .section-list-count {
     font-weight: bold;
     background-color: var(--bg-color-tetiary);
@@ -135,9 +135,9 @@ svg.add-icon {
 }
 
 .section-list-scroll {
-    /* background-color: red; */
     overflow: auto;
-    height: 7.5rem;
+    max-height: 7.5rem;
+    display: grid;
 }
 
 .menu-lists {
