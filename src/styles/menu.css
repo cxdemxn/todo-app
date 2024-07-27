@@ -129,6 +129,22 @@ svg.add-icon {
     stroke-width: 40px;   
 }
 
+.menu-section {
+    /* background-color: red; */
+    padding: 1rem 0;
+}
+
+.section-list-scroll {
+    /* background-color: red; */
+    overflow: auto;
+    height: 7.5rem;
+}
+
+.menu-lists {
+    border-top: 2px solid var(--bg-color-tetiary);
+    border-bottom: 2px solid var(--bg-color-tetiary);
+}
+
 .menu-tags button {
     background: none;
     display: flex;

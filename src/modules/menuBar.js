@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iam.todo</title>
-</head>
-<body>
-    <div class="container">
-        <div class="menu-container">
-            <div class="menu-top">
+export default function() {
+    return `<div class="menu-top">
                 <div class="one">
                     <span class="heading-two">Menu</span>
                     <svg  viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
@@ -60,50 +51,27 @@
                         lists
                     </div>
                     <div class="section-list">
-                        <div class="section-list-scroll">
-                            <button type="button">
-                                <div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">Personal</span>
-                                </div>
-                                <span class="section-list-count">3</span>
-                            </button>
-                            <button type="button">
-                                <div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">Work</span>
-                                </div>
-                                <span class="section-list-count">6</span>
-                            </button>
-                            <button type="button">
-                                <div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">List 1</span>
-                                </div>
-                                <span class="section-list-count">3</span>
-                            </button>
-                            <button type="button">
-                                <div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">Personal</span>
-                                </div>
-                                <span class="section-list-count">3</span>
-                            </button>
-                            <button type="button">
-                                <div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">Work</span>
-                                </div>
-                                <span class="section-list-count">6</span>
-                            </button>
-                            <button type="button">
-                                <div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">List 1</span>
-                                </div>
-                                <span class="section-list-count">3</span>
-                            </button>
-                        </div>
+                        <button type="button">
+                            <div>
+                                <div class="list-color"></div>
+                            <span class="section-list-text">Personal</span>
+                            </div>
+                            <span class="section-list-count">3</span>
+                        </button>
+                        <button type="button">
+                            <div>
+                                <div class="list-color"></div>
+                            <span class="section-list-text">Work</span>
+                            </div>
+                            <span class="section-list-count">6</span>
+                        </button>
+                        <button type="button">
+                            <div>
+                                <div class="list-color"></div>
+                            <span class="section-list-text">List 1</span>
+                            </div>
+                            <span class="section-list-count">3</span>
+                        </button>
                         <button type="button" class="add-list">
                             <div>
                                 <svg class="add-icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
@@ -147,8 +115,5 @@
                     <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 512 512"><path d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"></path></svg>
                     <span>Sign Out</span>
                 </button>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+            </div>`
+}

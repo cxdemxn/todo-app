@@ -5,12 +5,13 @@ import Task from './components/Task'
 const newTask = new Task('title', 'some odd description', new Date());
 
 console.log(newTask);
-console.info('this is an info message');
-console.warn('this is a warning message');
-console.error('this is an error message');
 
-let stat = 'delete';
+// consolte.log(new Date());
+const sysTaskBtn = document.querySelectorAll('.sysTaskCtrl');
+console.log(sysTaskBtn);
 
-console.log(`${newTask.title} was ${stat}d successfully`);
-
-// console.log(new Date());
+sysTaskBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        console.log(`${btn.dataset.menubtn} button was clicked`);
+    });
+});
