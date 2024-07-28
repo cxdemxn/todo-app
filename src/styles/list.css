@@ -91,6 +91,8 @@
 .task-main div {
     display: flex;
     gap: 1rem;
+    background-color: red;
+    align-items: center;
 }
 
 .task-entry-container button:last-of-type {
