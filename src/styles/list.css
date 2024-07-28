@@ -76,7 +76,7 @@
 .task-entry-container button {
     display: grid;
     border-bottom: 1px solid var(--bg-color-tetiary);
-
+    text-align: left;
 }
 
 .task-entry-container button .task-main{
@@ -91,7 +91,7 @@
 .task-main div {
     display: flex;
     gap: 1rem;
-    background-color: red;
+    /* background-color: red; */
     align-items: center;
 }
 

@@ -84,6 +84,6 @@ svg {
 }
 
 .container {
-    /* display: grid; */
-    /* grid-template-columns: 1fr 3fr; */
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 }
