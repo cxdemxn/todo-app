@@ -1,11 +1,19 @@
 .main-view-container {
-    padding: 0 1.5rem;
-    padding-right: 0;
+    /* border: 1px solid; */
+    padding-left: 1.5rem;
+    /* border-bottom: 5px solid red; */
+    height: 100vh;
+    padding-bottom: 1.3rem;
 }
 
 .list-view {
-    display: grid;
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
     gap: 3rem;
+    /* border: 2px solid; */
+    height: 100%;
 }
 
 .list-title {
@@ -28,12 +36,11 @@
 }
 
 .list-body {
-    display: grid;
-}
-
-.add-task-wrapper {
-display: grid;
-padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid green; */
+    max-height: 100%;
+    overflow: auto;
 }
 
 .add-task-btn {
@@ -49,18 +56,27 @@ padding-right: 1.5rem;
 
 .task-entry-container {
     display: grid;
-    max-height: 100vh;
+}
+
+.add-task-wrapper {
+    display: grid;
+}
+
+.add-task-wrapper,
+.task-entry-container {
+    padding-right: 1.5rem;    
+}
+
+.list-scroll {
+    /* border: 3px solid orangered; */
+    /* height: 100%; */
     overflow: auto;
-    padding-right: 1.5rem;
 }
 
 .task-entry-container button {
     display: grid;
     border-bottom: 1px solid var(--bg-color-tetiary);
-}
 
-.task-entry-container button:active {
-    border-radius: 10px;
 }
 
 .task-entry-container button .task-main{
@@ -77,16 +93,7 @@ padding-right: 1.5rem;
     gap: 1rem;
 }
 
-.task-main span {
-    text-align: left;
-}
-
 .task-entry-container button:last-of-type {
-    border-bottom: none;
-    /* background-color: red; */
-}
-
-.task-check {
-    border-radius: 10px;
-    width: 1rem;
+    border: none;
+    background-color: red;
 }

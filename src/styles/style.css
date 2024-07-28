@@ -55,11 +55,6 @@
     height: 100%;
 }
 
-html {
-    overflow-y: hidden;
-    height: 100%;
-}
-
 svg {
     fill: var(--font-light-color);
     /* stroke: var(--font-light-color);
@@ -75,7 +70,7 @@ button, input {
 body {
     height: 100%;
     display: grid;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .menu-top .two svg,
@@ -89,6 +84,6 @@ svg {
 }
 
 .container {
-    display: grid;
+    /* display: grid; */
     /* grid-template-columns: 1fr 3fr; */
 }

@@ -7,7 +7,7 @@ import pageLoad from './utils/pageLoad'
 const newTask = new Task('title', 'some odd description', new Date());
 
 document.addEventListener('DOMContentLoaded', () => {
-    pageLoad();
+    // pageLoad();
 });
 
 document.querySelector('#testTask').addEventListener('click', () => {
