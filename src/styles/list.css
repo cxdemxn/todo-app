@@ -1,6 +1,6 @@
 .main-view-container {
-    /* border: 1px solid; */
     padding: 0 1.5rem;
+    padding-right: 0;
 }
 
 .list-view {
@@ -31,6 +31,11 @@
     display: grid;
 }
 
+.add-task-wrapper {
+display: grid;
+padding-right: 1.5rem;
+}
+
 .add-task-btn {
     border: 1px solid var(--bg-color-tetiary);
     display: flex;
@@ -44,6 +49,9 @@
 
 .task-entry-container {
     display: grid;
+    max-height: 100vh;
+    overflow: auto;
+    padding-right: 1.5rem;
 }
 
 .task-entry-container button {

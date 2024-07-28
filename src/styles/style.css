@@ -55,6 +55,11 @@
     height: 100%;
 }
 
+html {
+    overflow-y: hidden;
+    height: 100%;
+}
+
 svg {
     fill: var(--font-light-color);
     /* stroke: var(--font-light-color);
@@ -81,4 +86,9 @@ svg {
     overflow: visible; 
     opacity: 1; 
     z-index: 1; 
+}
+
+.container {
+    display: grid;
+    /* grid-template-columns: 1fr 3fr; */
 }
