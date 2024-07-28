@@ -51,6 +51,10 @@
     border-bottom: 1px solid var(--bg-color-tetiary);
 }
 
+.task-entry-container button:active {
+    border-radius: 10px;
+}
+
 .task-entry-container button .task-main{
     display: flex;
     padding: 1rem 1.5rem;
