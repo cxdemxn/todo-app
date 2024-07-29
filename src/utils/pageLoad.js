@@ -3,7 +3,7 @@ import main from './../modules/main'
 
 export default function () {
     loadMenu();
-    // loadMain();
+    loadMain();
 }
 
 function loadMenu() {

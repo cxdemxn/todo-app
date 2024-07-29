@@ -1,28 +1,38 @@
+// styles
 import './styles/style.css'
 import './styles/menu.css'
 import './styles/list.css'
+
+// components
+import Dom from './components/Dom'
 import Task from './components/Task'
+import ListService from './components/ListService'
+
+
+// utils
 import pageLoad from './utils/pageLoad'
+
+
+
+
 
 const newTask = new Task('title', 'some odd description', new Date());
 
 document.addEventListener('DOMContentLoaded', () => {
     pageLoad();
+    const listSection = new ListService();
+
+
+
     document.querySelector('.add-list').addEventListener('click', () => {
-        const listName = prompt('enter list name');
 
-        const listSection = document.querySelector('.add-to-list');
-        const list = document.createElement('button');
-        list.innerHTML = `<div>
-                                    <div class="list-color"></div>
-                                <span class="section-list-text">${listName}</span>
-                                </div>
-                                <span class="section-list-count show-number"></span>`
+       const list = new Dom().addList(listSection);
 
-        listSection.appendChild(list);
+        
 
-        console.log('add btn clicked');
-    })
+
+    });
+
 
 
     document.querySelectorAll('#testTask').forEach(btn => {

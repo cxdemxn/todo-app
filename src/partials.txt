@@ -55,7 +55,7 @@
                             <button type="button">
                                 <div>
                                     <div class="list-color"></div>
-                                <span class="section-list-text">Personal</span>
+                                    <span class="section-list-text">Personal</span>
                                 </div>
                                 <span class="section-list-count show-number">3</span>
                             </button>
