@@ -1,7 +1,9 @@
 import menu from './../modules/menu'
+import main from './../modules/main'
 
 export default function () {
     loadMenu();
+    // loadMain();
 }
 
 function loadMenu() {
@@ -10,6 +12,13 @@ function loadMenu() {
     menuContainer.innerHTML = menu();
 
     loadMenuButtons();
+}
+
+function loadMain() {
+    const mainContainer = document.querySelector('.main-view-container');
+
+    mainContainer.innerHTML = main()
+
 }
 
 function loadMenuButtons() {

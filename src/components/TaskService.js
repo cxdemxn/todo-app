@@ -1,3 +1,9 @@
+/*
+
+store each task's id in the dataset attribute in the html to assist tracking
+
+*/
+
 import { findTask } from './../utils/auxFunctions'
 import { logInfo, logError, logWarning } from './../utils/log'
 export default class {
@@ -12,10 +18,14 @@ export default class {
     editTask = (id, title, desc, dueDate, priority) => {
         const taskIndex = findTask(id, this.tasks);
         if (taskIndex != -1) {
-            this.tasks[taskIndex].title = title;
-            this.tasks[taskIndex].desc = desc;
-            this.tasks[taskIndex].dueDate = dueDate;
-            this.tasks[taskIndex].priority = priority;
+            this.tasks[taskIndex].title = this.tasks[taskIndex].title ? this.tasks[taskIndex].title : title;
+
+            this.tasks[taskIndex].desc = this.tasks[taskIndex].desc ? this.tasks[taskIndex].desc : desc;
+
+            this.tasks[taskIndex].dueDate = this.tasks[taskIndex].dueDate ? this.tasks[taskIndex].dueDate : dueDate;
+
+            this.tasks[taskIndex].priority = this.tasks[taskIndex].priority ? this.tasks[taskIndex].priority : priority;
+
 
             return this.tasks[taskIndex];
         }

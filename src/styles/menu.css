@@ -1,7 +1,7 @@
 .menu-container {
     background-color: var(--bg-color-secondary);
     display: flex;
-    display: none;
+    /* display: none; */
     flex-direction: column;
     flex-grow: 1;
     gap: 2rem;
@@ -86,6 +86,7 @@
     justify-content: space-between;
     padding: .6rem 1rem;
     border-radius: 10px;
+    text-align: left;
 }
 
 .section-list button div,
