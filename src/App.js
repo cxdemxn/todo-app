@@ -25,10 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     document.querySelector('.add-list').addEventListener('click', () => {
+        const dom = new Dom();
 
-       const list = new Dom().addList(listSection);
+        dom.addList(listSection);
 
-        
+        console.log(listSection.allLists()[listSection.size - 1]);
+
+        dom.buildTaskView(listSection.allLists()[listSection.size - 1]);
+
 
 
     });

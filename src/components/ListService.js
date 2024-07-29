@@ -12,4 +12,12 @@ export default class {
         this._lists.push(list);
     }
 
+    allLists = () => {
+        return this._lists;
+    }
+
+    get size() {
+        return this._lists.length;
+    }
+
 }

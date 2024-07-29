@@ -25,6 +25,10 @@ export default class extends TaskService {
         this._color = value
     }
 
+    get size() {
+        return this._tasks.length;
+    }
+
     numTasks = () => {
         return this._tasks.length;
     }
