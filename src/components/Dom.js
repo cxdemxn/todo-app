@@ -5,36 +5,17 @@ export default class {
 
     }
 
-    addList(listSection) {
-        const newList = new List();
-        newList.name = prompt('enter list name');
-        newList.color = prompt('enter list color');
+    addList = (list) => {
+        const listsContainer = document.querySelector('.add-to-list');
 
-        const list = document.createElement('button');
-        list.innerHTML = `<div>
-                                    <div class="list-color" style="background-color:${newList.color};"></div>
-                                <span class="section-list-text">${newList.name}</span>
-                                </div>
-                                <span class="section-list-count show-number">${newList.size}</span>`
+        const btn = document.createElement('button');
 
-        list.addEventListener('click', () => {
-            this.buildTaskView(newList);
-        })
+        btn.innerHTML = `<div>
+                            <div class="list-color" style="background-color:${list.color};"></div>
+                            <span class="section-list-text">${list.name}</span>
+                        </div>
+                        <span class="section-list-count show-number">${list.size}</span>`
 
-        listSection.domID.appendChild(list);
-        listSection.addList(newList);
-
-    }
-
-    buildTaskView(list) {
-        console.log(list);
-        const listTitle = document.querySelector('.title');
-        listTitle.innerHTML = `${list.name}`;
-        listTitle.style.color = list.color;
-
-
-        const listCount = document.querySelector('.title-list-count');
-        listCount.innerHTML = `${list.size}`;
-        
+        listsContainer.appendChild(btn);
     }
 }

@@ -1,16 +1,12 @@
 export default function() {
-    return `
-        <div class="list-view">
+    return `<div class="list-view">
                 <div class="list-title">
                     <span class="title"></span>
                     <span class="title-list-count"></span>
                 </div>
                 <div class="list-body">
                     <div class="add-task-wrapper">
-                        <button type="button" class="add-task-btn">
-                            <svg class="add-icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                            <span>Add New Task</span>
-                        </button>
+                        
                     </div>
                     <div class="list-scroll">
                         <div class="task-entry-container">

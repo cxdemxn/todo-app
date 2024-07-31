@@ -5,7 +5,7 @@ store each task's id in the dataset attribute in the html to assist tracking
 */
 
 import { findTask } from './../utils/auxFunctions'
-import { logInfo, logError, logWarning } from './../utils/log'
+
 export default class {
     constructor() {
         this.tasks = [];
