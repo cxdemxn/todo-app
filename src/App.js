@@ -25,16 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskApp = new TaskApp();
     const listSection = new ListService();
 
-    document.querySelector('.add-list').addEventListener('click', () => {
-        // const list = new List();
-        // list.name = prompt('enter name');
-        // list.color = prompt('enter color');
+    const testSection = JSON.parse(localStorage.getItem('lists'));
+    // console.log(testSection);
 
-        // dom.addList(list);
-        // listSection.addList(list);
-        taskApp.addList();
+    // document.querySelector('.add-list').addEventListener('click', () => {
+    //     // const list = new List();
+    //     // list.name = prompt('enter name');
+    //     // list.color = prompt('enter color');
 
-    });
+    //     // dom.addList(list);
+    //     // listSection.addList(list);
+    //     taskApp.addList();
+
+    // });
 });
 
 

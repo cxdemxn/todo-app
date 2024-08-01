@@ -5,11 +5,64 @@ import ListService from './ListService';
 
 import { findList } from './../utils/auxFunctions'
 
+function buildListSection() {
+    if (localStorage.getItem('lists')) {
+        const builtSection = new ListService()
+        builtSection._lists =  JSON.parse(localStorage.getItem('lists'))._lists;
+        builtSection._lists =  buildList(JSON.parse(localStorage.getItem('lists'))._lists);
+
+        return builtSection;
+    }
+
+    return new ListService();
+}
+
+function buildList(lists) {
+    const listArray = []
+    lists.forEach(list => {
+        const newList = new List();
+
+        newList.id = list._id;
+        newList.name = list._name;
+        newList.color = list._color;
+        newList.btnId = list._btnId;
+        newList._tasks = buildTask(list._tasks);
+        // newList._tasks = list._tasks;
+
+        listArray.push(newList);
+    });
+
+    return listArray;
+}
+
+function buildTask(tasks) {
+    const taskArray = []
+    tasks.forEach(task => {
+        const newTask = new Task();
+
+        newTask.id = task._id;
+        newTask.title = task._title;
+
+
+        taskArray.push(newTask);
+    });
+    return taskArray;
+}
+
+
 export default class {
     constructor() {
-        this._listSection = new ListService();
+        this._listSection = buildListSection();
         this._currentList = new List();
-        
+
+
+        if (this._listSection.size > 0) {
+            this.renderSavedState();
+        }
+
+        document.querySelector('.add-list').addEventListener('click', () => {
+            this.addList();
+        });
     }
 
     addList = () => {
@@ -37,18 +90,14 @@ export default class {
 
         listBtn.addEventListener('click', () => {
             this.showTasks(list);
-        })
+        });
         this._listSection.domID.appendChild(listBtn);
-        console.log(listBtn);
     }
 
     showTasks = (list) => {
-        // console.log(this._listSection);
         this._currentList = findList(list.id, this._listSection.allLists())[0];
-        console.log(this._currentList);
 
-        // console.log(this._listSection.allLists());
-        
+
        updateListInterface(this._currentList);
 
         const addTaskWrapper = document.querySelector('.add-task-wrapper');
@@ -61,19 +110,18 @@ export default class {
 
         addTaskBtn.addEventListener('click', () => {
             this.addTask();
-            // console.log(`add task btn was clicked in ${list.name}`);
         });
 
         addTaskWrapper.innerHTML = '';
         document.querySelector('.task-entry-container').innerHTML = '';
         addTaskWrapper.appendChild(addTaskBtn);
 
+
         if (this._currentList.size > 0) {
             this._currentList.allTasks().forEach(task => {
                 buildTaskBtn(task);
             });
 
-            console.log('we have shown tasks')
         }
     }
 
@@ -81,13 +129,49 @@ export default class {
         const task = new Task();
         task.title = prompt('Enter task title');
 
+        if (!task.title)
+            return;
+
         buildTaskBtn(task)
         
         this._currentList.addTask(task);
+        saveToStorage(this._listSection);
         updateListInterface(this._currentList);
-        // console.log(this._currentList);
+    }
+
+    renderSavedState = () => {
+
+        this._listSection.allLists().forEach(list => {
+            this.renderList(list);
+        });
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function buildTaskBtn(task) {
     const taskBtn = document.createElement('button');
@@ -95,7 +179,7 @@ function buildTaskBtn(task) {
     taskBtn.innerHTML = `
             <div class="task-main">
             <div>
-                <input type="checkbox" class="task-check">
+                <input type="checkbox" class="task-check" id="${task.id}">
                 <span>${task.title}</span>
             </div>
             <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
@@ -103,14 +187,13 @@ function buildTaskBtn(task) {
     `
 
     taskBtn.addEventListener('click', () => {
-        // console.log(`task with task title ${task.title} and task id ${task.id}`);
     })
 
     
     document.querySelector('.task-entry-container').appendChild(taskBtn);
     
-    document.querySelector('.task-check').addEventListener('click', () => {
-        // console.log(`checkbox on task '${task.title}' in list ${this._currentList}`);
+    document.querySelector(`#${task.id}`).addEventListener('click', () => {
+        console.log(`task check for ${task.title} was clicked`);
     });
 }
 
@@ -123,4 +206,8 @@ function updateListInterface(list) {
     taskCount.textContent = list.size;
 
     document.querySelector(`#${list.btnId}`).textContent = list.size;
+}
+
+function saveToStorage(listSection) {
+    localStorage.setItem('lists', JSON.stringify(listSection));
 }

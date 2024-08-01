@@ -16,6 +16,10 @@ export default class extends TaskService {
         return this._id;
     }
 
+    set id(oldId) {
+        this._id = oldId;
+    }
+
     get name()  {
         return this._name;
     }
@@ -34,6 +38,10 @@ export default class extends TaskService {
 
     get btnId() {
         return this._btnId;
+    }
+    
+    set btnId(oldBtnId) {
+        this._btnId = oldBtnId;
     }
 
     get size() {

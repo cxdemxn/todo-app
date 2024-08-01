@@ -13,6 +13,10 @@ export default class {
         return this._id;
     }
 
+    set id(oldId) {
+        this._id = oldId;
+    }
+
     set title(value) {
         this._title = value;
     }
