@@ -8,44 +8,44 @@ import { findTask } from './../utils/auxFunctions'
 
 export default class {
     constructor() {
-        this.tasks = [];
+        this._tasks = [];
     }
 
     addTask = (task) => {
-        this.tasks.push(task);
+        this._tasks.push(task);
     }
 
     editTask = (id, title, desc, dueDate, priority) => {
-        const taskIndex = findTask(id, this.tasks);
+        const taskIndex = findTask(id, this._tasks);
         if (taskIndex != -1) {
-            this.tasks[taskIndex].title = this.tasks[taskIndex].title ? this.tasks[taskIndex].title : title;
+            this._tasks[taskIndex].title = this._tasks[taskIndex].title ? this._tasks[taskIndex].title : title;
 
-            this.tasks[taskIndex].desc = this.tasks[taskIndex].desc ? this.tasks[taskIndex].desc : desc;
+            this._tasks[taskIndex].desc = this._tasks[taskIndex].desc ? this._tasks[taskIndex].desc : desc;
 
-            this.tasks[taskIndex].dueDate = this.tasks[taskIndex].dueDate ? this.tasks[taskIndex].dueDate : dueDate;
+            this._tasks[taskIndex].dueDate = this._tasks[taskIndex].dueDate ? this._tasks[taskIndex].dueDate : dueDate;
 
-            this.tasks[taskIndex].priority = this.tasks[taskIndex].priority ? this.tasks[taskIndex].priority : priority;
+            this._tasks[taskIndex].priority = this._tasks[taskIndex].priority ? this._tasks[taskIndex].priority : priority;
 
 
-            return this.tasks[taskIndex];
+            return this._tasks[taskIndex];
         }
         return null;
     }
 
     deleteTask = (id) => {
-        const taskIndex = findTask(id, this.tasks);
-        const taskToDelete = this.tasks[taskIndex];
-        this.tasks = this.tasks.filter(task => task.id !== id);
+        const taskIndex = findTask(id, this._tasks);
+        const taskToDelete = this._tasks[taskIndex];
+        this._tasks = this._tasks.filter(task => task.id !== id);
 
         return taskToDelete;
     }
 
     toggleComplete = id => {
-        const taskIndex = findTask(id, this.tasks)
+        const taskIndex = findTask(id, this._tasks)
         if (taskIndex != -1) {
-            this.tasks[taskIndex].completed ? false : true;
+            this._tasks[taskIndex].completed ? false : true;
 
-            return this.tasks[taskIndex];
+            return this._tasks[taskIndex];
         }
     }
 }

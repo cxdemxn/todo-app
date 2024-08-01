@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -15,7 +16,8 @@ module.exports = {
             title: 'iam.todo',
             filename: 'index.html',
             template: 'src/app.html'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
