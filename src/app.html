@@ -11,8 +11,361 @@
            
         </div>
 
-        <div class="main-view-container">
-            
+        <div class="main-view-container mob">
+            <div class="list-view">
+                <div class="list-title">
+                    <button class="list-exit hide">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                    </button>
+                    <span class="title">Today</span>
+                    <span class="title-list-count">5</span>
+                </div>
+                <div class="list-body">
+                    <div class="add-task-wrapper">
+                        <button type="button" class="add-task-btn">
+                            <svg class="add-icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
+                            <span>Add New Task</span>
+                        </button>
+                    </div>
+                    <div class="list-scroll">
+                        <div class="task-entry-container">
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Research content ideas</span>
+                                    </div>
+
+                                    <div class="task-main-icons">
+                                        <div class="task-main-icon-dropdown">
+                                            <svg id="Capa_1" enable-background="new 0 0 32.055 32.055" version="1.1" viewBox="0 0 32.055 32.055" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="m3.968 12.061c-2.193 0-3.968 1.774-3.968 3.966s1.773 3.967 3.968 3.967c2.189 0 3.966-1.772 3.966-3.967 0-2.192-1.777-3.966-3.966-3.966zm12.265 0c-2.188 0-3.968 1.773-3.968 3.965s1.778 3.967 3.968 3.967 3.97-1.772 3.97-3.967c-2e-3 -2.191-1.78-3.965-3.97-3.965zm11.857 0c-2.192 0-3.969 1.774-3.969 3.967 0 2.19 1.774 3.965 3.969 3.965 2.188 0 3.965-1.772 3.965-3.965s-1.777-3.967-3.965-3.967z"/>
+                                            </svg>
+
+                                            <div class="task-dropdown-bg">
+                                               <a href="#" class="dropdown-option">
+                                                    <span>Delete</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg>
+                                               </a>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                    </div>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Create a database of guest authors </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>Renew driver's license </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                            <button type="button" class="task" id="testTask">
+                                <div class="task-main">
+                                    <div>
+                                        <input type="checkbox" class="task-check">
+                                        <span>last one innit </span>
+                                    </div>
+                                    <svg style="width: 16px; height: 16px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(124, 124, 124);" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                                </div>
+                                <div class="task-desc">
+    
+                                </div>
+                                <div class="task-extra">
+                                    
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>     
         </div>
     </div>
 </body>

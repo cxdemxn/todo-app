@@ -1,0 +1,66 @@
+@media screen and (max-width: 900px) {
+    body {
+    }
+
+    .container {
+        /* display: flex;
+        flex-direction: column; */
+        grid-template-columns: 1fr;
+    }
+
+    .mob {
+        /* background-color: red; */
+        background-color: var(--bg-color-primary);
+
+        /* display: none; */
+        padding: 1rem 0;
+        height: 50vh;
+        height: 100vh;
+        width: 100%;
+        /* width: 0; */
+        position: fixed;
+        top: 0%;
+        left: 0;
+        transition: .4s;
+        z-index: 999;
+        /* display: flex; */
+        /* overflow-x: hidden; */
+        animation: slideUp 0.5s forwards;
+    }
+
+    @keyframes slideUp {
+        from {
+          height: 0;
+        }
+        to {
+          height: 100%;
+        }
+      }
+
+    .menu-container {
+        /* display: none; */
+    }
+
+    .list-title {
+        padding-left: 1.5rem;
+    }
+
+    .list-title > * {
+        /* background-color: red; */
+    }
+
+    .list-exit {
+        display: flex;
+    }
+    
+    .list-exit svg {
+        /* width: 30px; */
+        height: 30px;
+        /* background-color: red; */
+
+    }
+
+    .list-body {
+        padding-left: 1.5rem;
+    }
+}

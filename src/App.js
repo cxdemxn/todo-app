@@ -2,6 +2,7 @@
 import './styles/style.css'
 import './styles/menu.css'
 import './styles/list.css'
+import './styles/media.css'
 
 // components
 import Dom from './components/Dom'
@@ -38,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //     taskApp.addList();
 
     // });
+
+    console.log(String(Math.random() * 20).split('.').join(''))
+
+    document.querySelector('#')
 });
 
 
