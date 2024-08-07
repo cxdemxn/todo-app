@@ -109,6 +109,15 @@ export default class {
             listSect.classList.remove('hidden');
             listSect.classList.add('current-screen');
 
+            document.querySelector('.list-exit').addEventListener('click', () => {
+                console.log('list-exit clicked');
+                document.querySelector('.main-view-container').classList.add('hidden');
+
+                const menuSect = document.querySelector('.menu-container');
+                menuSect.classList.remove('hidden');
+                menuSect.classList.add('current-screen');
+            })
+
        }
 
         const addTaskWrapper = document.querySelector('.add-task-wrapper');

@@ -28,11 +28,11 @@
         /* position: fixed; */
         top: 0%;
         left: 0;
-        transition: .4s;
+        transition: .9s;
         z-index: 999;
         /* display: flex; */
         /* overflow-x: hidden; */
-        animation: slideUp 0.5s forwards;
+        animation: slideUp .5s forwards;
     }
 
     @keyframes slideUp {
