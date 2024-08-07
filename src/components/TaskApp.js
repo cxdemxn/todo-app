@@ -55,14 +55,15 @@ export default class {
         this._listSection = buildListSection();
         this._currentList = new List();
 
+        console.log(this._listSection.domID.children.length)
 
-        if (this._listSection.size > 0) {
+        if (this._listSection.size > 0 && this._listSection.domID.children.length <= 0) {
             this.renderSavedState();
         }
 
-        document.querySelector('.add-list').addEventListener('click', () => {
-            this.addList();
-        });
+        this.addListHandler = this.addList.bind(this);
+        this.addListElement = document.querySelector('.add-list');
+        this.addListElement.addEventListener('click', this.addListHandler);
     }
 
     addList = () => {
@@ -78,6 +79,7 @@ export default class {
         this._listSection.addList(list);
         this.renderList(list);
         this.showTasks(list);
+        console.log('called addList from TaskApp');
     }
 
     renderList = (list) => {
@@ -99,6 +101,15 @@ export default class {
 
 
        updateListInterface(this._currentList);
+
+       if (window.matchMedia('(max-width: 900px)').matches) {
+            console.log('we are at small device')
+            document.querySelector('.menu-container').classList.add('hidden');
+            const listSect = document.querySelector('.main-view-container');
+            listSect.classList.remove('hidden');
+            listSect.classList.add('current-screen');
+
+       }
 
         const addTaskWrapper = document.querySelector('.add-task-wrapper');
         const addTaskBtn = document.createElement('button');
