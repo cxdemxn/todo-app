@@ -1,4 +1,4 @@
-import { getRandomTaskId } from './../utils/auxFunctions'
+import { getRandomTaskId, getRandomTaskBtnId } from './../utils/auxFunctions'
 
 export default class {
     constructor(title, desc, dueDate, priority) {
@@ -8,6 +8,7 @@ export default class {
         this._dueDate = dueDate;
         this._priority - priority;
         this._completed = false;
+        this._btnId = getRandomTaskBtnId();
     }
     get id() {
         return this._id;
@@ -50,5 +51,13 @@ export default class {
     }
     get completed () {
         return this._completed;
+    }
+
+    get btnId() {
+        return this._btnId;
+    }
+    
+    set btnId(oldBtnId) {
+        this._btnId = oldBtnId;
     }
 }

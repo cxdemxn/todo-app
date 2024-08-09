@@ -1,5 +1,5 @@
 import TaskService from './TaskService'
-import { getRandomListId, getRandomBtnId } from './../utils/auxFunctions'
+import { getRandomListId, getRandomListBtnId } from './../utils/auxFunctions'
 
 export default class extends TaskService {
     constructor(listNsme ='', listColor = '') {
@@ -8,7 +8,7 @@ export default class extends TaskService {
         this._id = getRandomListId()
         this._name = listNsme;
         this._color = listColor;
-        this._btnId = getRandomBtnId();
+        this._btnId = getRandomListBtnId();
         // this._tasks = [];
     }
 
