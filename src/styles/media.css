@@ -102,6 +102,10 @@
         background-color: var(--bg-color-secondary);
     }
 
+    button:hover {
+        border: none;
+    }
+
     .list-body {
         gap: 1rem;
     }
