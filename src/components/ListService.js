@@ -19,5 +19,4 @@ export default class {
     get size() {
         return this._lists.length;
     }
-
 }

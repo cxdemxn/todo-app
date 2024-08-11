@@ -39,13 +39,15 @@ export default class {
 
         return taskToDelete;
     }
+    toggleComplete (id) {
 
-    toggleComplete = id => {
         const taskIndex = findTask(id, this._tasks)
-        if (taskIndex != -1) {
-            this._tasks[taskIndex].completed ? false : true;
-
-            return this._tasks[taskIndex];
+        if (taskIndex.id === id) {
+            taskIndex.completed ? taskIndex.completed = false : taskIndex.completed = true
         }
+    }
+
+    allTasks() {
+        return this._tasks;
     }
 }
