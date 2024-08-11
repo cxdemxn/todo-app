@@ -7,7 +7,7 @@ import './styles/media.css'
 // components
 import Task from './components/Task'
 import TaskApp from './components/TaskApp'
-import NewTaskApp from './components/NewTaskApp'
+import NewTaskApp from './components/TaskAppController'
 import ListService from './components/ListService'
 
 // utils
