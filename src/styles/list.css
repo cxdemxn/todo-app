@@ -45,8 +45,8 @@
 .list-body {
     display: flex;
     flex-direction: column;
-    /* border: 3px solid green; */
     max-height: 100%;
+    gap: 2rem;
     overflow: auto;
 }
 
@@ -83,7 +83,11 @@
 .task-entry-container button {
     /* display: grid; */
     border-bottom: 1px solid var(--bg-color-tetiary);
+    border-top: 1px solid var(--bg-color-tetiary);
+    border: 1px solid var(--bg-color-tetiary);
     text-align: left;
+    border-radius: 10px;
+    margin-bottom: 9px;
 }
 
 .task-entry-container button .task-main{
@@ -98,13 +102,16 @@
 .task-main div {
     display: flex;
     gap: 1rem;
-    /* background-color: red; */
     align-items: center;
 }
-
+/* 
 .task-entry-container button:last-of-type {
-    border: none;
+    border-bottom: none;
 }
+
+.task-entry-container button:first-of-type{
+    border-top: none;
+} */
 
 
 .task-main-icon-dropdown {
@@ -144,4 +151,16 @@ button.delete {
 
 .completed {
     text-decoration: line-through;
+}
+
+button:hover {
+    /* background-color: red; */
+    background-color: var(--bg-color-secondary);
+
+    border-radius: 10px;
+}
+
+.completed:disabled {
+    background-color: var(--bg-color-secondary);
+    /* background-color: #acaaaa; */
 }

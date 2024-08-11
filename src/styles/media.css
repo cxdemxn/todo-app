@@ -78,4 +78,31 @@
     .hidden {
         display: none;
     }
+    
+    .task-entry-container button:last-of-type {
+        border-bottom: none;
+    }
+
+    .task-entry-container button:first-of-type{
+        border-top: none;
+    }   
+
+    .task-entry-container button {
+        /* display: grid; */
+        border-bottom: 1px solid var(--bg-color-tetiary);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        text-align: left;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+
+    button:active {
+        background-color: var(--bg-color-secondary);
+    }
+
+    .list-body {
+        gap: 1rem;
+    }
 }
