@@ -33,15 +33,19 @@ export default class {
         this.eventManager.bindAddTask(this.handleAddTask.bind(this))
 
         if (this.$currentList.size > 0) {
-            this.$currentList.allTasks().forEach(task => {
-                this.view.renderTaskButton(task)
-
-                this.eventManager.bindToggleTaskCompleted(this.handleTogglTaskeCompleted.bind(this), task)
-
-                this.view.toggleTaskCompleted(task.completed, task.btnId, task.id)
-            })
+            this.renderExistingTasks(this.$currentList)
 
         }
+    }
+
+    renderExistingTasks(list) {
+        list.allTasks().forEach(task => {
+            this.view.renderTaskButton(task)
+
+            this.eventManager.bindToggleTaskCompleted(this.handleTogglTaskeCompleted.bind(this), task)
+
+            this.view.toggleTaskCompleted(task.completed, task.btnId, task.id)
+        })
     }
 
     handleAddTask(title) {

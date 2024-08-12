@@ -61,9 +61,6 @@ export default class {
         `
     
         
-        taskBtn.addEventListener('click', () => {
-        });
-        
         document.querySelector('.task-entry-container').appendChild(taskBtn); // this is where the task gets updated to the interface
     }
 
