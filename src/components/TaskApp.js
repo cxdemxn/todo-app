@@ -195,7 +195,6 @@ export default class {
             saveToStorage(this._listSection);
         });
 
-        console.log(taskBtn);
     }
 }
 

@@ -17,7 +17,7 @@ export default class {
     }
 
     renderList(list) {
-        this._updateListInterface(list)
+        this.updateListInterface(list)
 
         const addTaskWrapper = document.querySelector('.add-task-wrapper')
         const addTaskBtn = document.createElement('button')
@@ -43,7 +43,7 @@ export default class {
 
         // }
 
-        return addTaskBtn
+       
     }
 
     renderTaskButton(task) {
@@ -67,34 +67,35 @@ export default class {
         document.querySelector('.task-entry-container').appendChild(taskBtn); // this is where the task gets updated to the interface
     }
 
-    toggleTaskCheck(handler, task) {
-        document.querySelector(`#${task.id}`).addEventListener('click', () => {
-    
-            toggleCompleted(task);
+    renderTaskCompleted(taskBtnId, taskId) {
+        if (taskBtnId === undefined) return
 
-            saveToStorage(this._listSection);
-        });
-    }
-
-    renderTaskCompleted(id) {
-        if (id === undefined) return
-
-        const btn = document.querySelector(`#${id}`)
+        const btn = document.querySelector(`#${taskBtnId}`)
 
         btn.classList.add('completed')
         btn.disabled = true
+        document.querySelector(`#${taskId}`).checked = true
     }
 
-    renderTaskIncomplete(id) {
-        if (id === undefined) return;
+    renderTaskIncomplete(taskBtnId, taskId) {
+        if (taskBtnId === undefined) return;
 
-        const btn = document.querySelector(`#${id}`);
+        const btn = document.querySelector(`#${taskBtnId}`);
 
         btn.classList.remove('completed');
         btn.disabled = false;
+        document.querySelector(`#${taskId}`).checked = false
     }
 
-    _updateListInterface(list) {
+    toggleTaskCompleted(status, taskBtnId, taskId) {
+        if (status) {
+            this.renderTaskCompleted(taskBtnId, taskId)
+        } else {
+            this.renderTaskIncomplete(taskBtnId, taskId)
+        }
+    }
+
+    updateListInterface(list) {
         const title = document.querySelector('.title')
         title.textContent = list.name
         title.style.color = list.color

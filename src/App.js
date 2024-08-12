@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pageLoad();
 
-    new TaskApp();
+    // new TaskApp();
     new NewTaskApp();
 
     const testSection = JSON.parse(localStorage.getItem('lists'));

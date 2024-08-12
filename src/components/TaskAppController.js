@@ -23,33 +23,52 @@ export default class {
 
         const listBtn = this.view.renderListButton(list)
 
-        this.eventManager.setListEvent(listBtn, list, this.handleRenderTask.bind(this))
+        this.eventManager.setListEvent(listBtn, list, this.handleRenderTasks.bind(this))
     }
 
-    handleRenderTask(list) {
+    handleRenderTasks(list) {
         this.$currentList = list
         
-        const addTaskBtn = this.view.renderList(list)
+        this.view.renderList(list)
         this.eventManager.bindAddTask(this.handleAddTask.bind(this))
+
+        if (this.$currentList.size > 0) {
+            this.$currentList.allTasks().forEach(task => {
+                this.view.renderTaskButton(task)
+
+                this.eventManager.bindToggleTaskCompleted(this.handleTogglTaskeCompleted.bind(this), task)
+
+                this.view.toggleTaskCompleted(task.completed, task.btnId, task.id)
+            })
+
+        }
     }
 
     handleAddTask(title) {
         const task = this.service.createTask(title)
 
+        this.service.addTask(task, this.$currentList.id)
+
         this.view.renderTaskButton(task)
 
+        // update ui list information
+        this.view.updateListInterface(this.$currentList)
+
         this.eventManager.bindToggleTaskCompleted(this.handleTogglTaskeCompleted.bind(this), task)
+
+        console.log(this.service.getAllLists())
     }
 
     handleTogglTaskeCompleted(task) {
+        console.log(`toggleTaskCompleted for task ${task.title}`)
         this.service.toggleTask(task)
 
         if (task.completed) {
             console.log('strike')
-            this.view.renderTaskCompleted(task.btnId)
+            this.view.renderTaskCompleted(task.btnId, task.id)
         } else {
             console.log('no strike')
-            this.view.renderTaskIncomplete(task.btnId)
+            this.view.renderTaskIncomplete(task.btnId, task.id)
         }
     }
 

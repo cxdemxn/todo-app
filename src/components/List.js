@@ -9,7 +9,7 @@ export default class extends TaskService {
         this._name = listNsme;
         this._color = listColor;
         this._btnId = getRandomListBtnId();
-        // this._tasks = [];
+        this._tasks = [];
     }
 
     get id() {
@@ -46,9 +46,5 @@ export default class extends TaskService {
 
     get size() {
         return this._tasks.length;
-    }
-
-    allTasks = () => {
-        return this._tasks;
     }
 }

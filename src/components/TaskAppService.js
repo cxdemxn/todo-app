@@ -25,18 +25,20 @@ export default class {
         const task = new Task()
 
         task.title = title
-
-        this.$taskService.addTask(task)
         
         return task
     }
     
-    taskCompleted(id) {
-       
-        
+    addTask(task, listId) {
+        this.$taskService.addTask(task)
+        this.$listService.addTaskToList(listId, task)
     }
 
     toggleTask(task) {
         this.$taskService.toggleComplete(task.id)
+    }
+
+    getAllLists() {
+        this.$listService.allLists()
     }
 }

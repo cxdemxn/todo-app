@@ -1,3 +1,5 @@
+import List from "./List";
+
 export default class {
     constructor() {
         this._domId = document.querySelector('.add-to-list');
@@ -18,5 +20,13 @@ export default class {
 
     get size() {
         return this._lists.length;
+    }
+
+    addTaskToList(listId, task) {
+        let list = new List()
+        list = this._lists.filter((element) => element.id === listId)
+
+        // console.log(list.addTask())
+        list[0].addTask(task)
     }
 }
