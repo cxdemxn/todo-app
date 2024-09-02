@@ -6,6 +6,10 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
+        contentBase: './dist',
+        proxy: {
+            '/api': 'http:localhost:5000',
+        },
         static: {
             directory: path.resolve(__dirname, 'dist/'),
             

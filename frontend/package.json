@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://idk-wym.github.io/todo-app",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --config webpack.dev.js",
-    "pages": "git subtree push --prefix dist origin gh-pages"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -16,12 +18,18 @@
     "css-loader": "^7.1.2",
     "eslint": "^9.8.0",
     "eslint-plugin-react": "^7.35.0",
+    "gh-pages": "^6.1.1",
     "globals": "^15.9.0",
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^4.0.0",
-    "webpack": "^5.92.1",
+    "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.1.3"
   }
 }
