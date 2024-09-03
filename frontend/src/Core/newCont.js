@@ -4,7 +4,7 @@ import TaskAppService from "../components/TaskAppService"
 import TaskAppView from "../components/TaskAppView"
 // import pageLoad from "../utils/pageLoad"
 
-const backendUrl = 'http://localhost:5000/api'
+const backendUrl = process.env.APP_API_URL || 'http://localhost:5000/api'
 
 export default class {
     constructor() {
@@ -58,8 +58,7 @@ export default class {
     async loadIndex() {
         // loadMain()
         if (document.querySelector('.list-view')) {
-            console.log("culprit")
-            document.querySelector('.main-view-container').textContent = 'no data to show'
+            document.querySelector('.main-view-container').textContent = 'nothing to see here'
         }
         
         fetch(`${backendUrl}/`, {

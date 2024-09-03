@@ -18,7 +18,6 @@ export function loadMain() {
     const mainContainer = document.querySelector('.main-view-container');
 
     mainContainer.innerHTML = main()
-    console.log(mainContainer)
 }
 
 export function loadMenuButtons() {

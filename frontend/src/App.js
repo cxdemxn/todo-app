@@ -14,7 +14,6 @@ import newCont from './Core/newCont'
 // utils
 import pageLoad from './utils/pageLoad'
 
-console.log(window.location.pathname)
 
 
 document.addEventListener('DOMContentLoaded', () => {

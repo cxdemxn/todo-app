@@ -101,9 +101,6 @@ export default class {
         const taskCount = document.querySelector('.title-list-count')
         taskCount.textContent = list.size || 0
 
-        console.log(list.btnId)
-        console.log(document.querySelector(`#${list.btnId}`) )
-
         document.querySelector(`#${list.btnId}`).textContent = list.size || 0
     }
 }
