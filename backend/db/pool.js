@@ -9,9 +9,9 @@ const { host, database, password } = require('pg/lib/defaults')
 //     port: 5432
 // })
 module.exports = new Pool({
-    host: process.env.HOSTNAME,
-    user: process.env.USERNAME,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
-    port: process.env.PORT
+    host: process.env.DB_HOSTNAME,
+    user: process.env.DB_USERNAME,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT
 })
