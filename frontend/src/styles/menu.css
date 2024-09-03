@@ -80,7 +80,8 @@
     display: grid;
 }
 
-.section-list button {
+.section-list button,
+.section-list a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -90,7 +91,9 @@
 }
 
 .section-list button div,
-.menu-bottom button {
+.section-list a div,
+.menu-bottom button,
+.menu-bottom a {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -166,6 +169,6 @@ svg.add-icon {
     /* display: none; */
 }
 
-.menu-bottom button {
+.menu-bottom a {
     display: none;
 }

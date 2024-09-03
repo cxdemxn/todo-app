@@ -13,6 +13,8 @@ export default class {
                 handler(name, color)
             }
         })
+
+
     }
 
     setListEvent(btn, list, handler) {

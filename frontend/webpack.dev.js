@@ -6,22 +6,24 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist',
-        proxy: {
-            '/api': 'http:localhost:5000',
-        },
+        // contentBase: './dist',
+        proxy: [
+            {
+                '/api': 'http://localhost:5000',
+            }
+        ],
         static: {
             directory: path.resolve(__dirname, 'dist/'),
             
         },
         port: 2003,
-        open: true,
+        // open: true,
         hot: true,
-        watchFiles: {
-            paths: [
-                './src/app.html'
-            ]
-        }
+        // watchFiles: {
+        //     paths: [
+        //         './src/app.html'
+        //     ]
+        // }
     },
     performance: {
         maxAssetSize: 512000,

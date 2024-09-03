@@ -15,9 +15,9 @@ export default class {
 
         list.name = name
         list.color = color
-
+        
         this.$listService.addList(list)
-
+        
         return list
     }
 

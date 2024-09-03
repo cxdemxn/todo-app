@@ -94,7 +94,8 @@ export default class {
     }
 
     renderList = (list) => {
-        const listBtn = document.createElement('button');
+        const listBtn = document.createElement('a');
+        listBtn.href = `/list/${list.btnId}`
         listBtn.innerHTML = `<div>
                             <div class="list-color" style="background-color:${list.color};"></div>
                             <span class="section-list-text">${list.name}</span>

@@ -4,12 +4,13 @@ export default class {
     }
 
     renderListButton(list) {
-        const listBtn = document.createElement('button')
+        const listBtn = document.createElement('a')
+        listBtn.href = `/list/${list.id}`
         listBtn.innerHTML = `<div>
                             <div class="list-color" style="background-color:${list.color}"></div>
                             <span class="section-list-text">${list.name}</span>
                         </div>
-                        <span class="section-list-count show-number" id="${list.btnId}">${list.size}</span>`
+                        <span class="section-list-count show-number" id="${list.btnId}">${list.size || 0}</span>`
 
         document.querySelector('.add-to-list').appendChild(listBtn)
 
@@ -98,8 +99,8 @@ export default class {
         title.style.color = list.color
 
         const taskCount = document.querySelector('.title-list-count')
-        taskCount.textContent = list.size
+        taskCount.textContent = list.size || 0
 
-        document.querySelector(`#${list.btnId}`).textContent = list.size
+        document.querySelector(`#${list.btnId}`).textContent = list.size || 0
     }
 }

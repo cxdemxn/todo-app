@@ -154,7 +154,8 @@ button.delete {
     text-decoration: line-through;
 }
 
-button:hover {
+button:hover,
+a:hover {
     /* background-color: red; */
     background-color: var(--bg-color-secondary);
     border: 1px solid var(--bg-color-tetiary);

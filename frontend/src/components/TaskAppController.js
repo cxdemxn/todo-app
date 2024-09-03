@@ -30,7 +30,7 @@ export default class {
         this.$currentList = list
         
         this.view.renderList(list)
-        this.eventManager.bindAddTask(this.handleAddTask.bind(this))
+        // this.eventManager.bindAddTask(this.handleAddTask.bind(this))
 
         if (this.$currentList.size > 0) {
             this.renderExistingTasks(this.$currentList)

@@ -3,10 +3,10 @@ import main from './../modules/main'
 
 export default function () {
     loadMenu();
-    loadMain();
+    // loadMain();
 }
 
-function loadMenu() {
+export function loadMenu() {
     const menuContainer = document.querySelector('.menu-container');
 
     menuContainer.innerHTML = menu();
@@ -14,14 +14,14 @@ function loadMenu() {
     loadMenuButtons();
 }
 
-function loadMain() {
+export function loadMain() {
     const mainContainer = document.querySelector('.main-view-container');
 
     mainContainer.innerHTML = main()
 
 }
 
-function loadMenuButtons() {
+export function loadMenuButtons() {
     const sysTaskBtn = document.querySelectorAll('.sysTaskCtrl');
     // console.log(sysTaskBtn);
 
@@ -31,3 +31,5 @@ function loadMenuButtons() {
         });
     });
 }
+
+// exports = { loadMain, loadMenu }
