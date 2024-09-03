@@ -55,9 +55,10 @@ export default class {
         })
     }
     
-    loadIndex() {
+    async loadIndex() {
         // loadMain()
         if (document.querySelector('.list-view')) {
+            console.log("culprit")
             document.querySelector('.main-view-container').textContent = 'no data to show'
         }
         
@@ -89,9 +90,8 @@ export default class {
     loadToday() {
         // document.querySelector('#main-dummy').textContent = 'this is the today page'
     }
-
+    
     loadList(id) {
-        loadMain()
         
         fetch(`${backendUrl}/list/${id}`, {
             method: 'GET',
@@ -99,12 +99,20 @@ export default class {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json()
-        }).then(data => {
+        }).then(async data => {
+            await this.loadIndex()
+            loadMain()
             this.view.renderList(data)
+            this.view.updateListInterface(data)
+            
+        }).catch((reason) => {
+            console.error('Error rendering list', reason.message, reason)
+
         })
     }
 }

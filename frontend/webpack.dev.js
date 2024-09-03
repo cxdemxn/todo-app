@@ -24,6 +24,7 @@ module.exports = merge(common, {
         //         './src/app.html'
         //     ]
         // }
+        historyApiFallback: true,
     },
     performance: {
         maxAssetSize: 512000,

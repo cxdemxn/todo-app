@@ -14,6 +14,9 @@ import newCont from './Core/newCont'
 // utils
 import pageLoad from './utils/pageLoad'
 
+console.log(window.location.pathname)
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const controller = new newCont()
 
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             routeHandler(id)
         } else {
             const routeHandler = routes[path] || routes['/'];
+            console.log('here')
             routeHandler()
         }
     }
@@ -56,8 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('popstate', handleRoute);
+    // window.addEventListener('load', handleRoute);
 
-    handleRoute()
+    // handleRoute()
     controller._initApp()
 
     async function fetchData() {
@@ -78,8 +83,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // fetchData()
 
 
-
+    window.addEventListener('beforeunload', handleRoute())
 });
-
-
-
