@@ -6,6 +6,7 @@ export default class {
     renderListButton(list) {
         const listBtn = document.createElement('a')
         listBtn.href = `/list/${list.id}`
+        listBtn.id = list.id
         listBtn.innerHTML = `<div>
                             <div class="list-color" style="background-color:${list.color}"></div>
                             <span class="section-list-text">${list.name}</span>
@@ -27,24 +28,9 @@ export default class {
             <svg class="add-icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
             <span>Add New Task</span>
         `
-
-        // addTaskBtn.addEventListener('click', () => {
-        //     this.addTask()
-        // })
-
         addTaskWrapper.innerHTML = ''
         document.querySelector('.task-entry-container').innerHTML = ''
         addTaskWrapper.appendChild(addTaskBtn)
-
-
-        // if (this._currentList.size > 0) {
-        //     this._currentList.allTasks().forEach(task => {
-        //         this.buildTaskBtn(task)
-        //     })
-
-        // }
-
-       
     }
 
     renderTaskButton(task) {
@@ -100,6 +86,8 @@ export default class {
 
         const taskCount = document.querySelector('.title-list-count')
         taskCount.textContent = list.size || 0
+
+        console.log(list)
 
         document.querySelector(`#${list.btnId}`).textContent = list.size || 0
     }

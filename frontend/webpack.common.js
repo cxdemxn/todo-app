@@ -20,9 +20,9 @@ module.exports = {
             template: 'src/app.html'
         }),
         // new webpack.HotModuleReplacementPlugin(),
-        new Dotenv({
-            path: './.env.production'
-        }),
+        // new Dotenv({
+        //     path: './.env.production'
+        // }),
         // new webpack.DefinePlugin({
         //     'process.env': JSON.stringify(process.env)
         // })

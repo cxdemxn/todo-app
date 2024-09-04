@@ -1,22 +1,22 @@
 require ('dotenv').config({
-    path: '.env.production'
+    path: '.env.development'
 })
 
 const express = require('express');
 const cors = require('cors')
 const appRouter = require('./routes/appRouter')
+const listRouter = require('./routes/listRouter')
 
 const app = new express()
+
 
 app.use(cors())
 app.use(express.json())
 
 
-// app.get('/', (req, res) => {
-//     res.send('hello there')
-// })
 
 app.use('/api', appRouter)
+app.use('/api/list', listRouter)
 
 module.exports = app
 

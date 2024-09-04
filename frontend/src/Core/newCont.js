@@ -4,7 +4,7 @@ import TaskAppService from "../components/TaskAppService"
 import TaskAppView from "../components/TaskAppView"
 // import pageLoad from "../utils/pageLoad"
 
-const backendUrl = process.env.APP_API_URL || 'http://localhost:5000/api'
+const backendUrl = process.env.APP_API_URL
 
 export default class {
     constructor() {
@@ -104,7 +104,7 @@ export default class {
             }
             return response.json()
         }).then(async data => {
-            await this.loadIndex()
+            // await this.loadIndex()
             loadMain()
             this.view.renderList(data)
             this.view.updateListInterface(data)
