@@ -1,5 +1,6 @@
 const { Pool } = require('pg')
-const { host, database, password } = require('pg/lib/defaults')
+const { host, database, password, application_name } = require('pg/lib/defaults')
+const app = require('../app')
 
 // module.exports = new Pool({
 //     host: 'localhost',
@@ -13,5 +14,6 @@ module.exports = new Pool({
     user: process.env.DB_USERNAME,
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT
+    port: process.env.DB_PORT,
+    application_name: 'iam.todo'
 })
