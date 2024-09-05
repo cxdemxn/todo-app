@@ -3,10 +3,15 @@ const db = require('../db/queries')
 
 exports.addList = async (req, res) => {
     const newList = req.body
-    // console.log(newList)
-    const data = await db.insertList(newList)
 
-    // console.log(data)
+    try {
+        const data = await db.insertList(newList)
+        console.log(data)
+    } catch (error) {
+        console.error(`Error saving list to db:\n ${error.message}`)
+        res.status(500).json({ errorMessage: error.message })
+    }
+
 
     res.status(201).json(newList)
 }

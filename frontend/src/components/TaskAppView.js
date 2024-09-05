@@ -21,6 +21,8 @@ export default class {
     renderList(list) {
         // this.updateListInterface(list)
 
+        setMobileInterface();
+
         const addTaskWrapper = document.querySelector('.add-task-wrapper')
         const addTaskBtn = document.createElement('button')
         addTaskBtn.classList.add('add-task-btn')
@@ -88,10 +90,26 @@ export default class {
         const taskCount = document.querySelector('.title-list-count')
         taskCount.textContent = list.size || 0
 
-        console.log('here', list.btnId)
-        console.log(document.querySelector(`#${list.btnId}`))
         document.querySelector(`#${list.btnId}`).textContent = list.size || 0
 
 
     }
+}
+
+function setMobileInterface() {
+    if (window.matchMedia('(max-width: 900px)').matches) {
+        document.querySelector('.menu-container').classList.add('hidden');
+        const listSect = document.querySelector('.main-view-container');
+        listSect.classList.remove('hidden');
+        listSect.classList.add('current-screen');
+
+        document.querySelector('.list-exit').addEventListener('click', () => {
+            document.querySelector('.main-view-container').classList.add('hidden');
+
+            const menuSect = document.querySelector('.menu-container');
+            menuSect.classList.remove('hidden');
+            menuSect.classList.add('current-screen');
+        })
+
+   }
 }

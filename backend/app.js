@@ -4,8 +4,8 @@ require ('dotenv').config({
 
 const express = require('express');
 const cors = require('cors')
-const appRouter = require('./routes/appRouter')
-const listRouter = require('./routes/listRouter')
+const appRouter = require('./router/appRouter')
+const listRouter = require('./router/listRouter')
 
 const app = new express()
 

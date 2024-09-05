@@ -4,7 +4,9 @@ import TaskAppService from "../components/TaskAppService"
 import TaskAppView from "../components/TaskAppView"
 
 const backendUrl = process.env.APP_API_URL
-const view = new TaskAppView()
+const appView = new TaskAppView()
+const appService = new TaskAppService()
+const appEventManager = new TaskEventManager()
 
 
 export default class {
@@ -20,7 +22,14 @@ export async function handleReload(handler) {
     handler()
 }
 
+export function initApp() {
+
+    appEventManager.bindAddList(addList)
+}
+
 export async function loadIndex() {
+// renders existing lists in the list section
+
     if (! ( await existingListsToRender())) {
         return
     }
@@ -54,7 +63,6 @@ export async function loadList(listId) {
         loadMain()
         view.updateListInterface(data)
         view.renderList(data)
-        console.log(data)
     } catch (error) {
         console.error(`Smth ain't right ${error.message}
             ${error}
@@ -78,4 +86,48 @@ async function existingListsToRender() {
         console.error('Error fetching list count: ', err.message)
         return false
     }
+}
+
+async function addList(name, color) {
+    console.log('list added', {
+        name,
+        color
+    })
+    const list = appService.createList(name, color)
+    
+    let response;
+    try {
+        response = await fetch(`${backendUrl}/list/addList`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: list.id,
+                name: list.name,
+                color: list.color,
+                btnId: list.btnId
+            })
+        })
+
+        if (!response.ok) {
+            throw new Error('bad response from adding list')
+            
+        }
+
+        console.log(response)
+    } catch (error) {
+        console.error(`HTTP ERROR!\nStatus: ${response.status}\nMessage: ${error.message}`)
+        return
+    }
+
+    let data;
+    try {
+        data = await response.json()
+    } catch (error) {
+        console.error(`PARSE ERROR!\nMessage: ${error.message}`)
+        return
+    }
+
+    appView.renderListButton(data)
 }

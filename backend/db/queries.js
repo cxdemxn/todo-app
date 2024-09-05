@@ -11,19 +11,20 @@ async function allLists() {
 }
 
 async function insertList(list) {
-    await pool.query('INSERT INTO lists (list_id, name, color, btn_id) VALUES ($1, $2, $3, $4)', [list.id, list.name, list.color, list.btnId], (error, results) => {
-        if (error) {
-            // console.log(error)
-        } else {
-            // console.log(results)
-            return results
-        }
-    })
+    try {
+        const result = await pool.query('INSERT INTO lists (list_id, name, color, btn_id) VALUES ($1, $2, $3, $4)', [list.id, list.name, list.color, list.btnId])
+
+        return result
+    } catch (error) {
+        console.error('Error inserting list', error.message)
+        throw error
+    }
 }
 
 async function getList(id) {
     try {
         const result = await pool.query('select * from lists where list_id=$1', [ id ])
+
         return result.rows[0]
     } catch (error) {
         console.error('Error getting list from db', error)
@@ -34,7 +35,6 @@ async function getList(id) {
 async function getListCount() {
 
     try {
-
         const result = await pool.query('select count(*) from lists')
         
         return result
