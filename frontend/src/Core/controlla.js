@@ -14,6 +14,12 @@ export default class {
     }
 }
 
+export async function handleReload(handler) {
+    await loadIndex()
+
+    handler()
+}
+
 export async function loadIndex() {
     if (! ( await existingListsToRender())) {
         return
@@ -36,6 +42,23 @@ export async function loadIndex() {
         })
     } catch (error) {
         console.error('Error loading existing lists', error.message)
+    }
+}
+
+export async function loadList(listId) {
+
+    try {
+        const response = await fetch(`${backendUrl}/list/${listId}`)
+        const data = await response.json()
+        
+        loadMain()
+        view.updateListInterface(data)
+        view.renderList(data)
+        console.log(data)
+    } catch (error) {
+        console.error(`Smth ain't right ${error.message}
+            ${error}
+            `)
     }
 }
 

@@ -6,6 +6,7 @@ export default [
         controller: router('/')
     },
     {
-        path: '/list/id'
+        path: `/list/:id`,
+        controller: router(id)
     }
 ]

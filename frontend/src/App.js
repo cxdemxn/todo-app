@@ -6,44 +6,44 @@ import './styles/media.css'
 
 // components
 import newCont from './Core/newCont'
-import { loadIndex } from './Core/controlla'
+import { handleReload, loadIndex, loadList } from './Core/controlla'
 
 // utils
 import pageLoad from './utils/pageLoad'
 
+const routes = {
+    '/': () => { loadIndex() },
+    // '/today': () => { controller.loadToday() },
+    // '/upcoming': () => { console.log('upcoming') },
+    // '/list': (id) => { controller.loadList(id) }
+    '/list': (id) => { loadList(id) }
+}
+
+
+function handleRoute() {
+    const fullPath = window.location.pathname.split('/')
+    
+    const pathname = (fullPath[1]) ? `/${fullPath[1]}` : '/'
+    const pathid = fullPath[2]
+
+
+    const rounteHandler = routes[pathname] || routes['/']
+    rounteHandler(pathid)
+
+}
+
+function navigateTo(url) {
+    window.history.pushState({}, '', url);
+    handleRoute();
+}
+
 pageLoad()
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const controller = new newCont()
 
-    const routes = {
-        '/': () => { loadIndex() },
-        // '/today': () => { controller.loadToday() },
-        // '/upcoming': () => { console.log('upcoming') },
-        // '/list/:id': (id) => { controller.loadList(id) }
-    }
-
-
-    function handleRoute() {
-        const path = window.location.pathname;
-        const match = path.match(/\/list\/(.+)/);
-
-
-        if (match) {
-            const id = match[1];
-            const routeHandler = routes['/list/:id'];
-            routeHandler(id)
-        } else {
-            const routeHandler = routes[path] || routes['/'];
-            console.log('here')
-            routeHandler()
-        }
-    }
-
-    function navigateTo(url) {
-        window.history.pushState({}, '', url);
-        handleRoute();
-    }
+    
 
 
     document.body.addEventListener('click', (event) => {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.addEventListener('load', handleRoute);
 
     // handleRoute()
+    window.addEventListener('beforeunload', handleReload(handleRoute))
     // controller._initApp()
 
-    window.addEventListener('beforeunload', handleRoute())
 });
