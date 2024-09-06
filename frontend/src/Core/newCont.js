@@ -4,7 +4,7 @@ import TaskAppService from "../components/TaskAppService"
 import TaskAppView from "../components/TaskAppView"
 // import pageLoad from "../utils/pageLoad"
 
-const backendUrl = process.env.APP_API_URL
+// const backendUrl = process.env.APP_API_URL
 
 export default class {
     constructor() {
