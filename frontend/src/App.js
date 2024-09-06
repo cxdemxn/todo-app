@@ -15,6 +15,7 @@ import * as Router from './Core/Router'
 
 pageLoad()
 
+console.log(process.env.APP_API_URL)
 
 document.addEventListener('DOMContentLoaded', () => {
 

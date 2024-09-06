@@ -37,10 +37,10 @@ async function getList(id) {
 }
 
 async function getListCount() {
-
     try {
         const result = await pool.query('select count(*) from lists')
         
+
         return result
     } catch(err) {
         throw new Error(`Error fetching list count: ${err.message}`)

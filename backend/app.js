@@ -1,6 +1,12 @@
-require ('dotenv').config({
-    path: '.env.development'
-})
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV === 'production') {
+    dotenv.config({ path: './.env.production'})
+} else if (process.env.NODE_ENV === 'development') {
+    dotenv.config({ path: './.env.development'})
+} else {
+    dotenv.config()
+}
 
 const express = require('express');
 const cors = require('cors')
@@ -9,6 +15,7 @@ const listRouter = require('./router/listRouter')
 
 const app = new express()
 
+console.log(process.env)
 
 app.use(cors())
 app.use(express.json())

@@ -87,8 +87,13 @@ export async function loadList(listId) {
 
 async function existingListsToRender() {
     try {
-        // console.log('data')
         const response = await fetch(`${backendUrl}/list/count`)
+
+        if (!response.ok) {
+            const errorData = await response.json()
+            throw new Error('API error: ' + errorData.error)
+        }
+
         const data = await response.json()
 
         if (data.listCount > 0)
