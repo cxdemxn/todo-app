@@ -1,0 +1,37 @@
+# Exported from Render on 2024-09-06T02:37:22Z
+databases:
+- name: iam-todo-database
+  databaseName: iam_todo
+  user: iam_todo_user
+  plan: free
+  region: oregon
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "16"
+services:
+- type: web
+  name: iam.todo.service
+  runtime: node
+  repo: https://github.com/idk-wym/todo-app
+  plan: free
+  envVars:
+  - fromGroup: iam-todo-api
+  region: oregon
+  buildCommand: yarn
+  startCommand: node server.js
+  rootDir: backend
+- type: web
+  name: iam.todo
+  runtime: static
+  repo: https://github.com/idk-wym/todo-app
+  envVars:
+  - fromGroup: iam-todo-client
+  buildCommand: npm run predeploy
+  staticPublishPath: dist
+  routes:
+  - type: redirect
+    source: /*
+    destination: /
+  rootDir: frontend
+version: "1"
