@@ -3,7 +3,7 @@ import TaskEventManager from "../components/TaskEventManager"
 import TaskAppService from "../components/TaskAppService"
 import TaskAppView from "../components/TaskAppView"
 
-const backendUrl = process.env.APP_API_URL
+const backendUrl = process.env.APP_API_URL || 'https://iam-todo-service.onrender.com/api'
 const appView = new TaskAppView()
 const appService = new TaskAppService()
 const appEventManager = new TaskEventManager()
