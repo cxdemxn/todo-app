@@ -19,20 +19,16 @@ pageLoad()
 document.addEventListener('DOMContentLoaded', () => {
 
     document.body.addEventListener('click', (event) => {
-        const anchor = event.target.closest('a');
+        const anchor = event.target.closest('a')
         if (anchor && anchor.href) {
-            event.preventDefault();
-            // console.log(new URL(anchor.href))
-            Router.navigateTo(new URL(anchor.href).pathname);
+            event.preventDefault()
+            Router.navigateTo(new URL(anchor.href).pathname)
         }
-    });
+    })
 
-    window.addEventListener('popstate', Router.handleRoute);
-    // window.addEventListener('load', Router.handleRoute);
+    window.addEventListener('popstate', Router.handleRoute)
 
-    // Router.handleRoute()
     window.addEventListener('beforeunload', handleReload(Router.handleRoute))
-    // controller._initApp()
 
     initApp()
-});
+})

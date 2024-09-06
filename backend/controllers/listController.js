@@ -6,7 +6,6 @@ exports.addList = async (req, res) => {
 
     try {
         const data = await db.insertList(newList)
-        console.log(data)
     } catch (error) {
         console.error(`Error saving list to db:\n ${error.message}`)
         res.status(500).json({ errorMessage: error.message })
@@ -18,14 +17,19 @@ exports.addList = async (req, res) => {
 
 exports.getList = async (req, res) => {
 
-    const data = await db.getList(req.params.id)
-
-    res.json({
-        id: data.list_id,
-        name: data.name,
-        color: data.color,
-        btnId: data.btn_id
-    })
+    try {
+        const data = await db.getList(req.params.id)
+        res.json({
+            id: data.list_id,
+            name: data.name,
+            color: data.color,
+            btnId: data.btn_id
+        })
+    } catch (error) {
+        console.error('Error fetching list: ', error.message)
+        res.status(500).json({ errorMessage: error.message })
+    }
+    
 }
 
 exports.allLists = async (req, res) => {

@@ -3,6 +3,7 @@ import routes from "../routes"
 export function handleRoute() {
     const fullPath = window.location.pathname.split('/')
     
+
     const pathname = (fullPath[1]) ? `/${fullPath[1]}` : '/'
     const pathid = fullPath[2]
 

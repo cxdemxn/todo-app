@@ -17,14 +17,14 @@ export default class {
 }
 
 export async function handleReload(handler) {
-    await loadIndex()
+    if (window.location.pathname !== '/')
+        await loadIndex()
 
     handler()
 }
 
 export function initApp() {
-
-    appEventManager.bindAddList(addList)
+    loadIndex()
 }
 
 export async function loadIndex() {
@@ -45,28 +45,41 @@ export async function loadIndex() {
                 'Accept': 'application/json'
             }
         })
+
+        if (!response.ok) {
+            throw new Error('Bad response fetching existing ')
+        }
+
         const data = await response.json()
+        loadMenu()
         data.forEach(list => {
-            view.renderListButton(list)
+            appView.renderListButton(list)
         })
     } catch (error) {
         console.error('Error loading existing lists', error.message)
     }
+
+    appEventManager.bindAddList(addList)
+
 }
 
 export async function loadList(listId) {
-
+    
     try {
         const response = await fetch(`${backendUrl}/list/${listId}`)
+        
+        if (!response.ok) {
+            const errorData = await response.json()
+            throw new Error('API error: ' + errorData.errorMessage)
+        }
+        
         const data = await response.json()
         
         loadMain()
-        view.updateListInterface(data)
-        view.renderList(data)
+        appView.updateListInterface(data)
+        appView.renderList(data)
     } catch (error) {
-        console.error(`Smth ain't right ${error.message}
-            ${error}
-            `)
+        console.error(`loadList:\n${error.message}`)
     }
 }
 
@@ -112,7 +125,7 @@ async function addList(name, color) {
 
         if (!response.ok) {
             throw new Error('bad response from adding list')
-            
+
         }
 
         console.log(response)

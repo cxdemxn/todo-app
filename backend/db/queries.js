@@ -25,9 +25,13 @@ async function getList(id) {
     try {
         const result = await pool.query('select * from lists where list_id=$1', [ id ])
 
+        if (result.rowCount === 0) {
+            throw new Error('No list with id ' + id)
+        }
+
         return result.rows[0]
     } catch (error) {
-        console.error('Error getting list from db', error)
+        console.error('QUERY ERROR:', error.message)
         throw error
     }
 }
