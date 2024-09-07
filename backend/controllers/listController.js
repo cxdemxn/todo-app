@@ -21,7 +21,9 @@ exports.getList = async (req, res) => {
         const data = await db.getList(req.params.id)
         const tasks = await db.getTasks(req.params.id)
 
-        const allTasks = tasks.map(task => {
+        const allTasks = (tasks.length)
+        ?
+        tasks.map(task => {
             return {
                 id: task.task_id,
                 title: task.title,
@@ -30,6 +32,8 @@ exports.getList = async (req, res) => {
                 // optional list id
             }
         })
+        :
+        []
 
         res.json({
             list: {
