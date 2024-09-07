@@ -63,7 +63,8 @@ async function getTasks(listId) {
         const result = await pool.query('select * from tasks where list_id=$1', [ listId ])
 
         if (result.rowCount === 0) {
-            throw new Error('No task with list id ' + listId)
+            return 0
+            // throw new Error('No task with list id ' + listId)
         }
 
         return result.rows
