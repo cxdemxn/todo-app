@@ -8,6 +8,7 @@ const backendUrl = process.env.APP_API_URL
 const appView = new TaskAppView()
 const appService = new TaskAppService()
 const appEventManager = new TaskEventManager()
+let currentList;
 
 
 export default class {
@@ -86,6 +87,7 @@ export async function loadList(listId) {
                 appView.renderTaskButton(task)
             })
         }
+        currentList = list
         // loadTask(listId)        
     } catch (error) {
         console.error(`loadList:\n${error.message}`)
@@ -190,7 +192,6 @@ async function addTask(title) {
     const currentListId = window.location.pathname.split('/')[2]
 
     const task = appService.createTask(title)
-    console.log(task)
 
     try {
         const response = await fetch(`${backendUrl}/task/add`, {
@@ -217,6 +218,8 @@ async function addTask(title) {
         const data = await response.json()
         appView.renderTaskButton(data)
         // find a way to update list interface and accounting for the increase in list size after adding to it, probably another api call
+        currentList.size++
+        appView.updateListInterface(currentList)
     } catch (error) {
         console.error('addTask: ', error.message)
     }
