@@ -15,5 +15,19 @@ exports.addTask = async (req, res) => {
         res.status(500).json({ errorMessage: error.message })
     }
 
+    console.log(task)
     res.status(201).json(task)
+}
+
+exports.toggleTask = async (req, res) => {
+    const { id, completed } = req.body
+
+    try {
+        await db.updateTaskCompleted(id, completed)
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).json({ message: error.message })
+    }
+
+    res.status(201).json({ message: 'task updated successfully'})
 }

@@ -3,8 +3,8 @@ import TaskEventManager from "../components/TaskEventManager"
 import TaskAppService from "../components/TaskAppService"
 import TaskAppView from "../components/TaskAppView"
 
-const backendUrl = process.env.APP_API_URL
-// const backendUrl = 'https://iam-todo-service.onrender.com/api'
+// const backendUrl = process.env.APP_API_URL
+const backendUrl = 'https://iam-todo-service.onrender.com/api'
 const appView = new TaskAppView()
 const appService = new TaskAppService()
 const appEventManager = new TaskEventManager()
@@ -75,52 +75,29 @@ export async function loadList(listId) {
             throw new Error('API error: ' + errorData.errorMessage)
         }
         
-        const { list, tasks } = await response.json()
+        const { list, allTasks } = await response.json()
         
         loadMain()
         appView.updateListInterface(list)
         appView.renderList(list)
         appEventManager.bindAddTask(addTask)
 
-        if (tasks.length > 0) {
-            tasks.forEach(task => {
+        if (allTasks.length > 0) {
+            allTasks.forEach(task => {
+
                 appView.renderTaskButton(task)
+                appEventManager.bindToggleTaskCompleted(toggleTask, task)
+                appView.toggleTaskCompleted(task.completed, task.btnId, task.id)
+
             })
         }
+
         currentList = list
-        // loadTask(listId)        
     } catch (error) {
         console.error(`loadList:\n${error.message}`)
     }
 }
 
-// async function loadTask(listId) {
-
-//     try {
-//         const response = await fetch(`${backendUrl}/list/tasks`, {
-//             // method: 'GET',
-//             body: {
-//                 listId
-//             }
-//         })
-
-//         if (!response.ok) {
-//             const error = await response.json()
-//             throw new Error('loadTask API error')
-//         }
-
-//         const data = response.json()
-//         if (data.length === 0) {
-//             return
-//         }
-
-//         data.forEach(task => {
-//             appView.renderTaskButton(task)
-//         })
-//     } catch (error) {
-//         console.error('loadTask: ', error.message)
-//     }
-// }
 
 async function existingListsToRender() {
     try {
@@ -220,9 +197,39 @@ async function addTask(title) {
         // find a way to update list interface and accounting for the increase in list size after adding to it, probably another api call
         currentList.size++
         appView.updateListInterface(currentList)
+        appEventManager.bindToggleTaskCompleted(toggleTask, task)
+
     } catch (error) {
         console.error('addTask: ', error.message)
     }
+}
+
+async function toggleTask(task) {
+
+    appService.toggleTask(task)
+    try {
+        const response = await fetch(`${backendUrl}/task/toggle`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: task.id,
+                completed: task.completed
+            })
+        })
 
 
+        if (!response.ok) {
+            appService.toggleTask(task)
+            const error = await response.json()
+            throw new Error('API error ' + error.message)
+        }
+
+        appView.toggleTaskCompleted(task.completed, task.btnId, task.id)
+
+
+    } catch(error) {
+        console.log(`toggleTask ${error.message}`)
+    }
 }

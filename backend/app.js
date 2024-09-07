@@ -21,9 +21,9 @@ app.use(express.json())
 
 
 
-app.use('/api', appRouter)
 app.use('/api/list', listRouter)
 app.use('/api/task', taskRouter)
+app.use('/api', appRouter)
 
 module.exports = app
 

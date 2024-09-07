@@ -35,7 +35,9 @@ export default class {
     }
 
     toggleTask(task) {
-        this.$taskService.toggleComplete(task.id)
+        // this.$taskService.toggleComplete(task.id)
+
+        task.completed ? task.completed = false : task.completed = true
     }
 
     getAllLists() {

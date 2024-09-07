@@ -20,6 +20,17 @@ exports.getList = async (req, res) => {
     try {
         const data = await db.getList(req.params.id)
         const tasks = await db.getTasks(req.params.id)
+
+        const allTasks = tasks.map(task => {
+            return {
+                id: task.task_id,
+                title: task.title,
+                completed: task.completed,
+                btnId: task.btn_id,
+                // optional list id
+            }
+        })
+
         res.json({
             list: {
                 id: data.list_id,
@@ -28,7 +39,7 @@ exports.getList = async (req, res) => {
                 btnId: data.btn_id,
                 size: tasks.length
             },
-            tasks
+            allTasks
         })
     } catch (error) {
         console.error('Error fetching list: ', error.message)

@@ -84,6 +84,14 @@ async function getTaskCount(listId) {
     } 
 }
 
+async function updateTaskCompleted(id, completed) {
+    try {
+        await pool.query('update tasks set completed = $1 where task_id = $2', [ completed, id ])
+    } catch (error) {
+        throw new Error(`Error updating task completion status: ${error.message}`)
+    }
+}
+
 module.exports = {
     insertList,
     getList,
@@ -91,5 +99,6 @@ module.exports = {
     getListCount,
     insertTask,
     getTasks,
-    getTaskCount
+    getTaskCount,
+    updateTaskCompleted
 }
