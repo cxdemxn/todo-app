@@ -12,10 +12,9 @@ const express = require('express');
 const cors = require('cors')
 const appRouter = require('./router/appRouter')
 const listRouter = require('./router/listRouter')
+const taskRouter = require('./router/taskRouter')
 
 const app = new express()
-
-console.log(process.env)
 
 app.use(cors())
 app.use(express.json())
@@ -24,6 +23,7 @@ app.use(express.json())
 
 app.use('/api', appRouter)
 app.use('/api/list', listRouter)
+app.use('/api/task', taskRouter)
 
 module.exports = app
 

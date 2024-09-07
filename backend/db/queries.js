@@ -47,9 +47,48 @@ async function getListCount() {
     } 
 }
 
+async function insertTask(task, listId) {
+    try {
+        const result = await pool.query('INSERT INTO tasks (task_id, title, completed, btn_id, list_id) VALUES ($1, $2, $3, $4, $5)', [task.id, task.title, task.completed, task.btnId, listId])
+
+        return result
+    } catch (error) {
+        console.error('Error inserting task', error.message)
+        throw error
+    }
+}
+
+async function getTasks(listId) {
+    try {
+        const result = await pool.query('select * from tasks where list_id=$1', [ listId ])
+
+        if (result.rowCount === 0) {
+            throw new Error('No task with list id ' + listId)
+        }
+
+        return result.rows
+    } catch (error) {
+        console.error('QUERY ERROR:', error.message)
+        throw error
+    }
+}
+
+async function getTaskCount(listId) {
+    try {
+        const result = await pool.query('select count(*) from tasks where list_id = $1', [ listId ])
+        
+        return result.rows[0].count
+    } catch(err) {
+        throw new Error(`Error fetching list count: ${err.message}`)
+    } 
+}
+
 module.exports = {
     insertList,
     getList,
     allLists,
-    getListCount
+    getListCount,
+    insertTask,
+    getTasks,
+    getTaskCount
 }
